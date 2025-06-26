@@ -16,7 +16,8 @@ $\text{pdist}(\lambda, o, S) := \lambda \cdot \sigma(o, S)$
 
 The Probabilistic Local Outlier Factor (PLOF) of an object o is defined by:
 
-$\text{PLOF}_{\lambda, S}(o) := \frac{\text{pdist}(\lambda, o, S(o))}{\mathbb{E}_{s \in S(o)}[\text{pdist}(\lambda, s, S(s))]} - 1$
+$\text{PLOF}_{\lambda, S}(o) \\
+:= \frac{\text{pdist}(\lambda, o, S(o))}{\mathbb{E}_{s \in S(o)}[\text{pdist}(\lambda, s, S(s))]} - 1$
 
 A normalization making the scaling of PLOF independent of the particular data distribution:
 $\text{nPLOF} := \lambda \cdot \sqrt{\mathbb{E}\left[(\text{PLOF})^2\right]}$
@@ -24,7 +25,8 @@ $\text{nPLOF} := \lambda \cdot \sqrt{\mathbb{E}\left[(\text{PLOF})^2\right]}$
 We
 then apply the Gaussian Error Function to obtain a probability value, the Local Outlier Probability (LoOP), indicating the probability that a point $o\in D$ is an outlier:
 
-$\text{LoOP}_S(o) := \max\left\{0, \operatorname{erf}\left(\frac{\text{PLOF}_{\lambda, S}(o)}{\text{nPLOF} \cdot \sqrt{2}}\right)\right\}
+$\text{LoOP}_S(o) :=\\
+ \max\left\{0, \operatorname{erf}\left(\frac{\text{PLOF}_{\lambda, S}(o)}{\text{nPLOF} \cdot \sqrt{2}}\right)\right\}
 $
 
 The LoOP value will be close to 0 for points within dense regions and close to 1 for density based outliers.
